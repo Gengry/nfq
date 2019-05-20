@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "syslog.h": "c",
+        "pkts_hdlrs.h": "c",
+        "pkt.h": "c",
+        "list.h": "c",
+        "pkts_types.h": "c",
+        "stdint.h": "c",
+        "ip.h": "c",
+        "dns_analyze.h": "c",
+        "udpcheck.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}

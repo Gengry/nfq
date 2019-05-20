@@ -1,0 +1,420 @@
+pid1=1895
+optind:  3 
+optind:  5 
+optarg /var/run/trfl.pidoptind:  7 
+optind:  8 
+conf_name:  conf_example 
+pid3=1895
+pid2=1895
+tls: protocol version <3.1(< TLS 1.0) is not supported!
+f_ipsrv.c:140: ip-srv: add ip-srv 134744072:1:...
+f_ipsrv.c:140: ip-srv: add ip-srv 1032300801:6:...
+f_domain.c:99: domain: add domain baidu.com
+f_domain.c:99: domain: add domain www.baidu.com
+f_domain.c:99: domain: add domain bilibli.com
+f_domain.c:99: domain: add domain www.bilibili.com
+f_uri.c:89: uri: add uri http
+f_uri.c:89: uri: add uri https
+config is loaded successfully
+stat for /root/trfl/trfl-master/src/conf_ex_whitelist list:
+f_ipsrv: /32 list entries 1
+f_domain: list entries 0
+f_domaintree: list entries 0
+f_uri: list entries 0
+stat for /root/trfl/trfl-master/src/conf_ex_blacklist list:
+f_ipsrv: /32 list entries 1
+f_domain: list entries 4
+f_domaintree: list entries 0
+f_uri: list entries 2
+start thread 1[1897] for nfqueue 1
+thread 1: nfq: set queue maxlen to 1024 packets
+thread 1: nfq: set receive buffer size to 3072000 bytes(request 1536000)
+start thread 3[1899] for nfqueue 3
+thread 3: nfq: set queue maxlen to 1024 packets
+thread 3: nfq: set receive buffer size to 3072000 bytes(request 1536000)
+start thread 0[1896] for nfqueue 0
+thread 0: nfq: set queue maxlen to 1024 packets
+thread 0: nfq: set receive buffer size to 3072000 bytes(request 1536000)
+start thread 2[1898] for nfqueue 2
+thread 2: nfq: set queue maxlen to 1024 packets
+thread 2: nfq: set receive buffer size to 3072000 bytes(request 1536000)
+pkt_ip.c:117: 1: IP: 192.168.232.138 -> 61.135.169.121, size = 40, proto = 6
+pkt_tcp.c:108: 1: port 55204 -> port 443, size = 20
+main.c:541: 1: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 2: IP: 192.168.232.138 -> 61.135.169.121, size = 60, proto = 6
+pkt_tcp.c:108: 2: port 55214 -> port 443, size = 40
+main.c:541: 2: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 3: IP: 192.168.232.138 -> 61.135.169.121, size = 40, proto = 6
+pkt_tcp.c:108: 3: port 55214 -> port 443, size = 20
+main.c:541: 3: VERDICT - ACCEPT(mark - 0)
+pkt.c:136: 4: pkt domain: www.baidu.com
+pkt_ip.c:117: 4: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 4: port 55214 -> port 443, size = 548
+pkt_tls.c:250: 4: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 4: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 4: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 4: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 4: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 4: VERDICT - DROP
+pkt_ip.c:117: 5: IP: 192.168.232.138 -> 101.72.199.32, size = 60, proto = 6
+pkt_tcp.c:108: 5: port 59394 -> port 443, size = 40
+main.c:541: 5: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 6: IP: 192.168.232.138 -> 101.72.199.32, size = 40, proto = 6
+pkt_tcp.c:108: 6: port 59394 -> port 443, size = 20
+main.c:541: 6: VERDICT - ACCEPT(mark - 0)
+pkt.c:136: 7: pkt domain: ss1.bdstatic.com
+pkt_ip.c:117: 7: IP: 192.168.232.138 -> 101.72.199.32, size = 603, proto = 6
+pkt_tcp.c:108: 7: port 59394 -> port 443, size = 583
+pkt_tls.c:250: 7: tls: type=22(Handshake), ver=3.1, length=558 (size - 563)
+pkt_tls.c:291: 7: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 7: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 7: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 7: tls: msg_type=1: ext_type=0: hostname=ss1.bdstatic.com
+main.c:541: 7: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 8: IP: 192.168.232.138 -> 61.135.169.121, size = 60, proto = 6
+pkt_tcp.c:108: 8: port 55218 -> port 443, size = 40
+main.c:541: 8: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 9: IP: 192.168.232.138 -> 101.72.199.32, size = 40, proto = 6
+pkt_tcp.c:108: 9: port 59394 -> port 443, size = 20
+main.c:541: 9: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 10: IP: 192.168.232.138 -> 61.135.169.121, size = 40, proto = 6
+pkt_tcp.c:108: 10: port 55218 -> port 443, size = 20
+main.c:541: 10: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 11: IP: 192.168.232.138 -> 101.72.199.32, size = 83, proto = 6
+pkt_tcp.c:108: 11: port 59394 -> port 443, size = 63
+main.c:541: 11: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 12: IP: 192.168.232.138 -> 101.72.199.32, size = 209, proto = 6
+pkt_tcp.c:108: 12: port 59394 -> port 443, size = 189
+main.c:541: 12: VERDICT - ACCEPT(mark - 0)
+pkt.c:136: 13: pkt domain: www.baidu.com
+pkt_ip.c:117: 13: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 13: port 55218 -> port 443, size = 548
+pkt_tls.c:250: 13: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 13: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 13: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 13: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 13: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 13: VERDICT - DROP
+pkt_ip.c:117: 14: IP: 192.168.232.138 -> 101.72.199.32, size = 70, proto = 6
+pkt_tcp.c:108: 14: port 59394 -> port 443, size = 50
+main.c:541: 14: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 15: IP: 192.168.232.138 -> 101.72.199.32, size = 40, proto = 6
+pkt_tcp.c:108: 15: port 59394 -> port 443, size = 20
+main.c:541: 15: VERDICT - ACCEPT(mark - 0)
+pkt.c:136: 16: pkt domain: www.baidu.com
+pkt_ip.c:117: 16: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 16: port 55214 -> port 443, size = 548
+pkt_tls.c:250: 16: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 16: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 16: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 16: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 16: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 16: VERDICT - DROP
+pkt.c:136: 17: pkt domain: www.baidu.com
+pkt_ip.c:117: 17: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 17: port 55218 -> port 443, size = 548
+pkt_tls.c:250: 17: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 17: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 17: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 17: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 17: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 17: VERDICT - DROP
+pkt.c:136: 18: pkt domain: www.baidu.com
+pkt_ip.c:117: 18: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 18: port 55214 -> port 443, size = 548
+pkt_tls.c:250: 18: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 18: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 18: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 18: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 18: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 18: VERDICT - DROP
+pkt.c:136: 19: pkt domain: www.baidu.com
+pkt_ip.c:117: 19: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 19: port 55218 -> port 443, size = 548
+pkt_tls.c:250: 19: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 19: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 19: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 19: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 19: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 19: VERDICT - DROP
+pkt.c:136: 20: pkt domain: www.baidu.com
+pkt_ip.c:117: 20: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 20: port 55214 -> port 443, size = 548
+pkt_tls.c:250: 20: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 20: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 20: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 20: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 20: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 20: VERDICT - DROP
+pkt.c:136: 21: pkt domain: www.baidu.com
+pkt_ip.c:117: 21: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 21: port 55218 -> port 443, size = 548
+pkt_tls.c:250: 21: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 21: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 21: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 21: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 21: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 21: VERDICT - DROP
+pkt.c:136: 22: pkt domain: www.baidu.com
+pkt_ip.c:117: 22: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 22: port 55214 -> port 443, size = 548
+pkt_tls.c:250: 22: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 22: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 22: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 22: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 22: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 22: VERDICT - DROP
+pkt.c:136: 23: pkt domain: www.baidu.com
+pkt_ip.c:117: 23: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 23: port 55218 -> port 443, size = 548
+pkt_tls.c:250: 23: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 23: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 23: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 23: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 23: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 23: VERDICT - DROP
+pkt.c:136: 24: pkt domain: www.baidu.com
+pkt_ip.c:117: 24: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 24: port 55218 -> port 443, size = 548
+pkt_tls.c:250: 24: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 24: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 24: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 24: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 24: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 24: VERDICT - DROP
+pkt.c:136: 25: pkt domain: www.baidu.com
+pkt_ip.c:117: 25: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 25: port 55214 -> port 443, size = 548
+pkt_tls.c:250: 25: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 25: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 25: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 25: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 25: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 25: VERDICT - DROP
+pkt.c:136: 26: pkt domain: www.baidu.com
+pkt_ip.c:117: 26: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 26: port 55214 -> port 443, size = 548
+pkt_tls.c:250: 26: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 26: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 26: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 26: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 26: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 26: VERDICT - DROP
+pkt.c:136: 27: pkt domain: www.baidu.com
+pkt_ip.c:117: 27: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 27: port 55218 -> port 443, size = 548
+pkt_tls.c:250: 27: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 27: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 27: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=35(SessionTicket TLS)
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=11(ec_point_formats)
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=10(elliptic_curves)
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=65281(renegotiation_info)
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=23(extended_master_secret)
+pkt_tls.c:409: 27: tls: msg_type=1: ext_type=0(sni)
+pkt_tls.c:420: 27: tls: msg_type=1: ext_type=0: hostname=www.baidu.com
+main.c:545: 27: VERDICT - DROP
+pkt_ip.c:117: 28: IP: 192.168.232.138 -> 101.72.199.32, size = 40, proto = 6
+pkt_tcp.c:108: 28: port 59394 -> port 443, size = 20
+main.c:541: 28: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 29: IP: 192.168.232.138 -> 101.72.199.32, size = 78, proto = 6
+pkt_tcp.c:108: 29: port 59394 -> port 443, size = 58
+main.c:541: 29: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 30: IP: 192.168.232.138 -> 101.72.199.32, size = 63, proto = 6
+pkt_tcp.c:108: 30: port 59394 -> port 443, size = 43
+main.c:541: 30: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 31: IP: 192.168.232.138 -> 101.72.199.32, size = 40, proto = 6
+pkt_tcp.c:108: 31: port 59394 -> port 443, size = 20
+main.c:541: 31: VERDICT - ACCEPT(mark - 0)
+pkt_ip.c:117: 32: IP: 192.168.232.138 -> 61.135.169.121, size = 40, proto = 6
+pkt_tcp.c:108: 32: port 55218 -> port 443, size = 20
+main.c:541: 32: VERDICT - ACCEPT(mark - 0)
+pkt.c:136: 33: pkt domain: www.baidu.com
+pkt_ip.c:117: 33: IP: 192.168.232.138 -> 61.135.169.121, size = 568, proto = 6
+pkt_tcp.c:108: 33: port 55218 -> port 443, size = 548
+pkt_tls.c:250: 33: tls: type=22(Handshake), ver=3.1, length=523 (size - 528)
+pkt_tls.c:291: 33: tls: msg_type=1(ClientHello)
+pkt_tls.c:312: 33: tls: msg_type=1: ver=3.3
+pkt_tls.c:409: 33: tls: msg_type=1: ext_type=28(UNKNOWN)
+pkt_tls.c:409: 33: tls: msg_type=1: ext_type=45(UNKNOWN)
+pkt_tls.c:409: 33: tls: msg_type=1: ext_type=13(signature_algorithms)
+pkt_tls.c:409: 33: tls: msg_type=1: ext_type=43(UNKNOWN)
+pkt_tls.c:409: 33: tls: msg_type=1: ext_type=51(UNKNOWN)
+pkt_tls.c:409: 33: tls: msg_type=1: ext_type=5(status_request)
+pkt_tls.c:409: 33: tls: msg_type=1: ext_type=16(application_layer_protocol_negotiation)
+pkt_tls.c:409: 33: tls: msg_type=1: ext_type=35(SessionTick

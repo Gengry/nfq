@@ -1,0 +1,9 @@
+ip-srv:61.135.169.1:6
+domain:baidu.com
+domain:www.baidu.com
+domain:bilibli.com
+domain:www.bilibili.com
+uri:http://www.baidu.com
+uri:https://www.baidu.com
+uri:http://www.bilibili.com
+uri:https://www.bilibili.com

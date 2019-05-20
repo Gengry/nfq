@@ -1,0 +1,49 @@
+OVERVIEW
+========
+
+This tool is used to download RosKomNadzor register and convert it
+to trfl list format.
+
+INSTALLATION
+============
+
+Copy this directory somewhere.
+Perl libs you need:
+
+Text::CSV
+SOAP::Lite
+XML::Parser
+
+CONFIGURATION FILE
+==================
+
+rknr_get.pl accept as non option argument a configuration file name,
+where mandatory parameters are specified.
+
+conf_example can be used to create a conf file for the first time.
+
+USING
+=====
+
+Edit rknr_get.sh and conf file to fit your configuration. This script
+execute rknr_get.pl with needed options to download a register and
+convert it, and after that send a signal to trfl to reload a config.
+
+On every run rknr_get.pl checks last update time of urgent entries and
+if it bigger than a last download time, a registry is downloaded.
+Also, if last update time of urgent entries is not changed but
+time elpased from a last registry download is bigger than
+MAX_DOWNLOAD_INTERVAL(see rknr_get.pl), then a registry is downloaded.
+
+As soon as needed changes are applied place a line in cron for
+executing rknr_get.sh like this:
+
+*/10 *  * * *  root  /opt/rkn/rknr_get.sh
+
+Do not forget to add the line like the next to cron file too:
+
+0 1  * * *  root  find /opt/rkn/backup/ -mtime +20 -type f -exec rm -f '{}' \+
+
+To automatically delete old backup files.
+
+To convert existent xml file without downloading it, use -i option.

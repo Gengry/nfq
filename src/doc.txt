@@ -1,0 +1,5 @@
+1: debug输出的日志不知道在哪，修改了log.c中
+vdbg_out(const char * const fmt, va_list ap){
+    vsyslog(LOG_DEBUG, fmt, ap1);
+    vsyslog(LOG_INFO, fmt, ap1);
+}
