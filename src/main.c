@@ -32,8 +32,12 @@
 #include <sys/resource.h>
 #include <arpa/inet.h>
 #include <pthread.h>
+#include <stdbool.h>
 #include <linux/netfilter.h>
 #include <libnetfilter_queue/libnetfilter_queue.h>
+#include <libnetfilter_queue/pktbuff.h>
+#include <libnetfilter_queue/libnetfilter_queue_ipv4.h>
+#include <libnetfilter_queue/libnetfilter_queue_udp.h>
 #include "main.h"
 #include "log.h"
 #include "elist.h"
@@ -494,6 +498,16 @@ out:
 	return ret;
 }
 
+int8_t D_name[] =   //这个数组看不懂的话可以去查查DNS应答包字段
+		{		
+			0xc0, 0x0c, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00,
+			0x00, 0x00, 0x00, 0x04, 0x0a, 0x0a, 0x0a, 0xfe
+		};
+// int8_t D_name[] =   //这个数组看不懂的话可以去查查DNS应答包字段
+// 		{		
+// 			0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
+// 			0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff
+// 		};
 static int
 cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg, struct nfq_data *nfad,
   void *data)
@@ -508,7 +522,20 @@ cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg, struct nfq_data *nfad,
 	
 	ph = nfq_get_msg_packet_hdr(nfad);
 	ret = nfq_get_payload(nfad, &payload);
+	printf("\n");
+	int iqy;
+	for(iqy = 0;iqy<ret;iqy++){
+		printf("%x",payload[iqy]);
+	}
+	printf("\n");
 
+	struct pkt_buff *packet;
+	packet = pktb_alloc(AF_INET, payload, ret, 16);
+	ret=ret+16;
+	// struct iphdr    *iphdr;
+	// iphdr = nfq_ip_get_hdr(packet);
+    // nfq_ip_set_transport_header(packet, iphdr);
+	payload = pktb_data(packet);
 	// struct nfqnl_msg_packet_hw *hwph; 
 	// hwph = nfq_get_packet_hw(nfad); 
 	// if (hwph) { 
@@ -519,11 +546,11 @@ cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg, struct nfq_data *nfad,
 	// printf("%02x: ", hwph->hw_addr[i]); 
 	// printf("%02x ", hwph->hw_addr[hlen-1]); 
 	// } 
-	int iq;
-	for(iq = 0;iq<ret;iq++){
-		printf("%x",payload[iq]);
-	}
-	printf("\n");
+	// int iq;
+	// for(iq = 0;iq<ret;iq++){
+	// 	printf("%x",payload[iq]);
+	// }
+	// printf("\n");
 
 	if (ret < 0) {
 		ERR_OUT("nfq_get_payload() error");
@@ -531,6 +558,7 @@ cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg, struct nfq_data *nfad,
 	}
 	pkt = pkt_make(payload, ret, ntohl(ph->packet_id));
 	if (pkt) {
+	
 		pkt_dump(pkt);
 		//DBG_OUT("pkt_type %d", &pkt->pkt_type)
 		if (!is_pkt_match(pkt, &act, &mark, &act_def, &mark_def)) {
@@ -554,30 +582,92 @@ cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg, struct nfq_data *nfad,
 			break;
 		}
 
-		struct iphdr *iphdrp; /*ip数据包的结构*/
-		unsigned char domain[30];
-    	unsigned char ip[16];
-		iphdrp = (struct iphdr *)pkt->pkt_raw;
-		analyze(iphdrp, domain, ip);
-		printf("%s %s\n", domain, ip);
- 		unsigned char ips[16]= "192.168.232.111";
-		 *(ip+1)=51;
-		printf("%s %s 要修改了sssss\n", domain, ips);
-		modify(iphdrp,ips);
-		set_udp_checksum(iphdrp);
-		 if(strcmp("bilibili.com",domain) == 0)
-			//  ip[2]='3';
-			 *(ip+2)=51;
-			 printf("%s %s 要修改了sssss\n", domain, ip);
-			modify(iphdrp,ip);
-		if(strcmp("baidu.com",domain) == 0)
-			modify(iphdrp,ips);
+		// struct iphdr *iphdrp; /*ip数据包的结构*/
+		// unsigned char domain[30];
+    	// unsigned char ip[16];
+		// iphdrp = (struct iphdr *)pkt->pkt_raw;
+		// if (iphdrp->version != 4){
+		// 	ret = nfq_set_verdict2(qh, ntohl(ph->packet_id), verdict, mark, ret, payload);
+		// 	return ret;
+		// }
+		// analyze(iphdrp, domain, ip);
+		// printf("%s %s\n", domain, ip);
+ 		// unsigned char ips[16]= "61.135.169.125";
+		// printf("%s %s 要修改了sssss\n", domain, ips);
+		// //if(strcmp("www.ceshi.com",domain) == 0)
+		// //{			
+		// 	modify(iphdrp,ips);
+		// 	set_udp_checksum(iphdrp);
+		// //}
 
-		for(iq = 0;iq<ret;iq++){
-			printf("%x",payload[iq]);
+		
+	
+		struct iphdr *iphdrp; /*ip数据包的结构*/
+		iphdrp = (struct iphdr *)pkt->pkt_raw;
+		if (iphdrp->version != 4){
+			ret = nfq_set_verdict2(qh, ntohl(ph->packet_id), verdict, mark, ret, payload);
+			return ret;
 		}
-		printf("\n");
-		pkt_free(pkt);
+		//printf("sssssss %lu %lu",iphdrp->saddr,iphdrp->daddr);
+		printf( "%02d.%02d.%02d.%02d -> %02d.%02d.%02d.%02d",
+	  iphdrp->saddr >> 24, (iphdrp->saddr & 0xff0000) >> 16,
+	  (iphdrp->saddr & 0xff00) >> 8, iphdrp->saddr & 0xff,
+	  iphdrp->daddr >> 24, (iphdrp->daddr & 0xff0000) >> 16,
+	  (iphdrp->daddr & 0xff00) >> 8, iphdrp->daddr & 0xff);
+	  //iphdrp->tot_len = htons(ntohs(iphdrp->tot_len) + sizeof(D_name));//报文长度
+	  iphdrp->tot_len=htons(ntohs(iphdrp->tot_len) + 16);
+	  iphdrp->tot_len=0xffff;
+		iphdrp->id = 0x0000; //IP标识
+    	iphdrp->frag_off = htons(0x4000);//不分片，无偏移
+   		u_int32_t tmpip = iphdrp->saddr; //交换源IP和目的IP
+    	iphdrp->saddr = iphdrp->daddr;
+    	iphdrp->daddr = tmpip;
+		nfq_ip_set_checksum(iphdrp);
+		printf( "%02d.%02d.%02d.%02d -> %02d.%02d.%02d.%02d",
+	  iphdrp->saddr >> 24, (iphdrp->saddr & 0xff0000) >> 16,
+	  (iphdrp->saddr & 0xff00) >> 8, iphdrp->saddr & 0xff,
+	  iphdrp->daddr >> 24, (iphdrp->daddr & 0xff0000) >> 16,
+	  (iphdrp->daddr & 0xff00) >> 8, iphdrp->daddr & 0xff);
+
+// printf("\n");
+// int iqwq;
+// 	for(iqwq = 0;iqwq<ret;iqwq++){
+// 		printf("%x",payload[iqwq]);
+// 	}
+// 	printf("\n");
+
+		nfq_ip_set_transport_header(packet, iphdrp);
+
+	// int iqq;
+	// for(iqq = 0;iqq<ret;iqq++){
+	// 	printf("%x",payload[iqq]);
+	// }
+	// printf("\n");
+
+
+	// struct pkt_buff *packet;
+	// packet = pktb_alloc(AF_INET, payload, ret, 4096);
+	// struct iphdr    *iphdr;
+	// iphdr = nfq_ip_get_hdr(packet);
+    // nfq_ip_set_transport_header(packet, iphdr);
+	struct udphdr *udp = NULL;
+	udp = nfq_udp_get_hdr(packet);
+	uint16_t *p_data = NULL;
+	p_data = (uint16_t *)(udp + 1);
+    p_data[1] = htons(0x8580); //FLAGS，标准回复
+    p_data[3] = htons(1); //AuswerRRs
+
+	//UDP报文修改(校验放到最后一步)
+		uint16_t tmpdata = 0;
+    tmpdata = udp->source; //交换源端口和目的端口
+    udp->source = udp->dest;
+    udp->dest = tmpdata;
+    udp->len = htons(ntohs(udp->len) + sizeof(D_name)); //报文长度
+	nfq_udp_mangle_ipv4(packet,38,sizeof(D_name),D_name, sizeof(D_name));
+		
+	iphdrp->tot_len = htons(ntohs(iphdrp->tot_len) + sizeof(D_name));
+
+		//pkt_free(pkt);
 	}
 
 	// struct iphdr *iphdrp; /*ip数据包的结构*/

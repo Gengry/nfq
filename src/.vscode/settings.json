@@ -8,7 +8,8 @@
         "stdint.h": "c",
         "ip.h": "c",
         "dns_analyze.h": "c",
-        "udpcheck.h": "c"
+        "udpcheck.h": "c",
+        "pktbuff.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
